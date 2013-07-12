@@ -7,3 +7,6 @@ preserve-inputs
 coffeescript
 router
 bootstrap
+accounts-base
+accounts-google
+accounts-ui
