@@ -1,0 +1,19 @@
+template(name='contact')
+  .container
+    .row
+      #pic
+        img(src='{{imgOp}}')
+      #title
+        #name {{name}}
+        #info {{info}}
+      #hidder
+    .row
+      .span12
+        {{msgList}}
+    .row
+      .span12
+        {{loginButtons}}
+    .row
+      .span12
+        textarea {{msg}}
+        button.btn OK
