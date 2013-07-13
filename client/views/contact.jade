@@ -1,19 +1,19 @@
 template(name='contact')
-  .container
-    .row
+  .container-fluid
+    .row-fluid
       #pic
-        img(src='{{imgOp}}')
+        img(src='{{img}}')
       #title
         #name {{name}}
         #info {{info}}
       #hidder
-    .row
-      .span12
+    .row-fluid
+      #msglist
         {{msgList}}
-    .row
-      .span12
+    .row-fluid
+      #auth
         {{loginButtons}}
-    .row
-      .span12
+    .row-fluid
+      #msg
         textarea {{msg}}
         button.btn OK

@@ -1,0 +1,16 @@
+#hidder, #pic {
+  width: 50px;
+  height: 50px;
+  float: left; }
+
+#title {
+  float: left;
+  height: 50px;
+  width: 270px; }
+
+#info, #name {
+  height: 25px;
+  width: 270px; }
+
+#msg, #msgList, #auth {
+  width: 320px; }
