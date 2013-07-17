@@ -1,0 +1,29 @@
+.hide{
+  display: none;
+}
+.clear{
+  margin: 0;
+  padding: 0;
+  height: 0;
+  clear: both;
+  float: none;
+}
+// text
+.fl{float: left}
+.fr{float: right}
+.c{text-align: center}
+.l{text-align: left}
+.r{text-align: right}
+.j{text-align: justify}
+
+.i{font-style: italic}
+.b{font-style: bold}
+.bi{font-style: bold;font-style: italic}
+
+.link{ cursor: pointer }
+.link:hover{  background-color: #e6eeee; }
+
+// float
+.left{  float: left;}
+.right{  float: right;}
+

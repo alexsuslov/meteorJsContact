@@ -1,19 +1,59 @@
-$contact_size: 320px;
+@import 'corner';
+@import 'shadow';
+$xSize: 320px;
+$ySize: 320px;
+$shColor:#bfbffb;
+body{
+  margin: 0;
+  padding: 4px;
+}
+.contact{
+  width: $xSize;
+  #auth{
+    margin: 4px;
+  }
 
-#hidder, #pic{
-  width: 50px;
-  height: 50px;
-  float: left;
+  #msgList{
+    @include corner(8px);
+    margin: 4px 0;
+    float:left;
+    width: $xSize;
+    max-height:320px;
+    overflow: auto;
+    @include shadow(#bfbfbf);
+    ul{
+      list-style-type: none;
+      padding:4px;
+      .info{
+        // margin-left: -16px;
+        // margin-top: -16px;
+        @include corner(8px);
+        @include shadow(#bfbfbf);
+        font-size: 70%;
+      }
+      li{
+        margin: 4px;
+        padding:8px;
+        width: 80%;
+        background-color: #d9f2fe;
+        @include corner(8px);
+        @include shadow(#bfbfbf);
+      }
+      li.owner{
+        float:right;
+        background-color: #fff9da;
+      }
+    }
+  }
+  #msg{
+    width: $xSize - 4;
+    textarea#msg{
+      @include corner(8px);
+      width: 100%;
+      line-height: 20px;
+      height: 40px;
+    }
+  }
 }
-#title{
-  float: left;
-  height: 50px;
-  width:$contact_size - 50;
-}
-#info, #name{
-  height: 25px;
-  width: $contact_size - 50 ;
-}
-#msg, #msgList, #auth{
-  width:$contact_size;
-}
+
+

@@ -1,19 +1,14 @@
 template(name='contact')
-  .container-fluid
-    .row-fluid
-      #pic
-        img(src='{{img}}')
-      #title
-        #name {{name}}
-        #info {{info}}
-      #hidder
-    .row-fluid
-      #msglist
-        {{msgList}}
-    .row-fluid
-      #auth
-        {{loginButtons}}
-    .row-fluid
-      #msg
-        textarea {{msg}}
-        button.btn OK
+  .contact
+    #auth
+    {{loginButtons}}
+    #msgList
+      {{> msgList}}
+    #msg
+      textarea#msg {{msg}}
+
+template(name='msgList')
+  ul {{#each msgs}}
+    li(class='{{owner}}') {{text}}
+      .info{{date}}
+  {{/each}}
