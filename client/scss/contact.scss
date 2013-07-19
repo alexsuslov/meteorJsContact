@@ -5,14 +5,11 @@ $ySize: 320px;
 $shColor:#bfbffb;
 body{
   margin: 0;
-  padding: 4px;
+  padding: 0;
 }
 .contact{
   width: $xSize;
-  #auth{
-    margin: 4px;
-  }
-
+  margin: 0 4px;
   #msgList{
     @include corner(8px);
     margin: 4px 0;
@@ -24,14 +21,22 @@ body{
     ul{
       list-style-type: none;
       padding:4px;
+      // Информация: время
       .info{
-        // margin-left: -16px;
-        // margin-top: -16px;
         @include corner(8px);
         @include shadow(#bfbfbf);
         font-size: 70%;
       }
-      li{
+      // ввод имени
+      input#name{
+        width: $xSize - 16;
+        font-size: 16px;
+        @include corner(4px);
+        @include shadow(#bfbfbf);
+      }
+      // желтый балон
+      li.owner, li.system{
+        font-size: 16px;
         margin: 4px;
         padding:8px;
         width: 80%;
@@ -39,16 +44,20 @@ body{
         @include corner(8px);
         @include shadow(#bfbfbf);
       }
+      // синий балон
       li.owner{
         float:right;
         background-color: #fff9da;
       }
     }
   }
+  // сообщение
   #msg{
     width: $xSize - 4;
     textarea#msg{
+      font-size: 16px;
       @include corner(8px);
+      @include shadow(#bfbfbf);
       width: 100%;
       line-height: 20px;
       height: 40px;

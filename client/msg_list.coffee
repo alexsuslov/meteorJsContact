@@ -26,9 +26,10 @@ Template.msgList.helpers
     'anonymous' if @owner is 'anonymous'
 
   'owner': ->
-    'owner' if Meteor.userId() and @owner is Meteor.userId()
-    'owner' unless Meteor.userId() and @owner is 'anonymous'
-
+    if @owner is 'anonymous'
+      'owner'
+    else
+      'system'
 
 Template.msgList.rendered= ->
   # move cursor to bottom

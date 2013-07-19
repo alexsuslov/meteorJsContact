@@ -1,14 +1,15 @@
 template(name='contact')
   .contact
-    #auth
-    {{loginButtons}}
     #msgList
       {{> msgList}}
     #msg
-      textarea#msg {{msg}}
+      textarea#msg(placeholder='Введите ваш вопрос') {{msg}}
 
 template(name='msgList')
   ul {{#each msgs}}
     li(class='{{owner}}') {{text}}
       .info{{date}}
+    {{else}}
+    li.name
+      input#name(type='text', placeholder='Ваше имя')
   {{/each}}
