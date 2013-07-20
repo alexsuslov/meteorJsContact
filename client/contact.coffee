@@ -38,6 +38,8 @@ addMsg = ( text, owner)->
     time: new Date().getTime()
   # добавляем сообщение в чат
   lastMsg = self.msgs.insert msg
+  Meteor.call 'operator', chatId
+
   if lastMsg
     Session.set 'lastMsg', lastMsg
     $('textarea#msg').val('')

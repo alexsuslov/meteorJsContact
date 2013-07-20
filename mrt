@@ -1,4 +1,4 @@
 #!/bin/bash
-export MONGO_URL=mongodb://localhost:27117/dev_contact
+export MONGO_URL=mongodb://localhost:27117/chat_biomed_2013
 mrt
 
