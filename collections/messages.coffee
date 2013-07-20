@@ -31,4 +31,4 @@ if Meteor.isServer
 
 
   Meteor.publish "chats", ->
-    self.chats.find(owner:@userId)
+    self.chats.find()

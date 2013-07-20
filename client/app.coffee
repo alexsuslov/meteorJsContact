@@ -4,13 +4,15 @@ Session.set 'oprName', 'testName'
 Session.set 'oprInfo', 'testInfo'
 
 
-
 Meteor.startup ->
+  Meteor.subscribe "chats"
+  chatId = self.getCookie 'contact'
+  if chatId
+    Session.set 'chatId', chatId
 
   interval = 10 * 1000
   # set chat online status
   Meteor.setInterval ()->
-    Meteor.subscribe "chats"
     chatId = Session.get 'chatId'
     if chatId
       update=

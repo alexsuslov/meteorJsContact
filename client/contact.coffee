@@ -29,6 +29,8 @@ addMsg = ( text, owner)->
     # делаем новый чат
     chatId = self.chats.insert chat
     Session.set 'chatId', chatId
+    # добавляю чат в куки
+    self.setCookie 'contact', chatId
   # сообщение
   owner = 'anonymous' unless owner
   msg =
