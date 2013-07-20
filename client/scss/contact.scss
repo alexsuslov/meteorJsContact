@@ -19,11 +19,14 @@ body{
     overflow: auto;
     @include shadow(#bfbfbf);
     ul{
+      margin: 4px 0;
       list-style-type: none;
-      padding:4px;
+      padding: 0 4px;
       // Информация: время
       .info{
-        @include corner(8px);
+        margin: 2px;
+        padding:2px;
+        @include corner(4px);
         @include shadow(#bfbfbf);
         font-size: 70%;
       }
@@ -37,16 +40,17 @@ body{
       // желтый балон
       li.owner, li.system{
         font-size: 16px;
-        margin: 4px;
-        padding:8px;
-        width: 80%;
+        margin: 4px 0;
+        padding:4px;
+        width: $xSize - 16;
         background-color: #d9f2fe;
         @include corner(8px);
         @include shadow(#bfbfbf);
       }
       // синий балон
       li.owner{
-        float:right;
+        // float:right;
+        // width: $xSize - 32;
         background-color: #fff9da;
       }
     }
