@@ -22,6 +22,7 @@ addMsg = ( text, owner)->
   unless chatId
     # новый чат
     chat =
+      operator:false
       online: new Date().getTime()
     # Добавляем имя клиента если есть
     userName = Session.get 'userName'
