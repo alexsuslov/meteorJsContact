@@ -52,7 +52,7 @@ Template.contact.events
   'keyup input#name':(e)->
     value = e.target.value.replace(/\n|^\s+|\s+$/g,'')
     if e.keyCode is 13 and value
-      addMsg 'Здраствуйте, ' + e.target.value + '.' , 'system'
+      addMsg 'Здравствуйте, ' + e.target.value + '.' , 'system'
       Session.set 'userName', e.target.value
 
   'keyup textarea#msg':(e)->
