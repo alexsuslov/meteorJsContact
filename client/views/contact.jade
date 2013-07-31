@@ -1,15 +1,26 @@
 template(name='contact')
-  .contact
-    #msgList
+  .navbar.navbar-fixed-top
+    a.navbar-brand(href="http://42do.ru") 42DO
+  .container-fluid
+    .row-fluid
       {{> msgList}}
-    #msg
-      textarea#msg(placeholder='Введите ваш вопрос') {{msg}}
+  .navbar.navbar-fixed-bottom
+    {{#if UserName}}
+    .fixed_bottom
+      input#name.col-12.form-control(type='text', placeholder='Ваше имя',autofocus="autofocus")
+    {{else}}
+    .fixed_bottom
+        textarea#msg.col-12.form-control(placeholder='Введите ваш вопрос',autofocus="autofocus") {{msg}}
+    {{/if}}
+
 
 template(name='msgList')
-  ul {{#each msgs}}
-    li(class='{{owner}}') {{text}}
-      .info{{date}}
+  ul.list-group {{#each msgs}}
+    li.list-group-item
+      span.badge{{date}}
+      | {{text}}
+
+      h4 {{userName}}
     {{else}}
-    li.name
-      input#name(type='text', placeholder='Ваше имя')
+    li @todo
   {{/each}}

@@ -9,13 +9,20 @@ Template.contact.helpers
     Session.get 'oprName'
   'info':->
     Session.get 'oprInfo'
-  'userName':->
-    Session.get 'userName'
+  'UserName':->
+    userName = Session.get 'userName'
+    true unless userName
+
 
 addMsg = ( text, owner)->
   # subscribe
   Meteor.subscribe "chats"
   Meteor.subscribe "msgs"
+
+  # Имя клиента если есть
+  userName = Session.get 'userName'
+  userName = 'Аноним' unless userName
+  userName = 'Пифия' if owner is 'system'
 
   # проверка на сущ. чата
   chatId = Session.get  'chatId'
@@ -24,17 +31,16 @@ addMsg = ( text, owner)->
     chat =
       operator:false
       online: new Date().getTime()
-    # Добавляем имя клиента если есть
-    userName = Session.get 'userName'
-    chat.userName = userName if userName
     # делаем новый чат
     chatId = self.chats.insert chat
     Session.set 'chatId', chatId
     # добавляю чат в куки
     self.setCookie 'contact', chatId
+
   # сообщение
   owner = 'anonymous' unless owner
   msg =
+    userName:userName
     owner:owner
     text: text
     chatId:chatId
@@ -47,13 +53,12 @@ addMsg = ( text, owner)->
     Session.set 'lastMsg', lastMsg
     $('textarea#msg').val('')
 
-
 Template.contact.events
   'keyup input#name':(e)->
     value = e.target.value.replace(/\n|^\s+|\s+$/g,'')
     if e.keyCode is 13 and value
-      addMsg 'Здравствуйте, ' + e.target.value + '.' , 'system'
       Session.set 'userName', e.target.value
+      addMsg 'Здравствуйте, ' + e.target.value + '.' , 'system'
 
   'keyup textarea#msg':(e)->
     value = e.target.value.replace(/\n|^\s+|\s+$/g,'')
@@ -65,4 +70,5 @@ Template.contact.events
         $(e.target).val msg.text if msg?.text
     if e.keyCode is 13 and value and !e.altKey
       addMsg value
+
 

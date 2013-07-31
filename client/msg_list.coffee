@@ -33,8 +33,8 @@ Template.msgList.helpers
 
 Template.msgList.rendered= ->
   # move cursor to bottom
-  el = document.getElementById('msgList')
-  el.scrollTop = el.scrollHeight
+  # el = document.getElementById('msgList')
+  # el.scrollTop = el.scrollHeight
 
 Template.msgList.msgs = ->
   Meteor.subscribe "msgs", Session.get  'chatId'
